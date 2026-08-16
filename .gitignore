@@ -1,0 +1,10 @@
+*
+!*/
+!.gitignore
+!README.md
+!**/docker-compose.yml
+!**/.env.example
+.env
+**/.env
+pihole/etc-pihole/
+pihole/etc-dnsmasq.d/

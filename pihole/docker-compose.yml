@@ -1,0 +1,23 @@
+services:
+  pihole:
+    image: pihole/pihole:2026.07.2
+    container_name: pihole
+    hostname: pihole
+    restart: unless-stopped
+
+    ports:
+    # In bridge mode, Pi-hole must listen on the LAN IP address, otherwise it won't be reachable from the LAN.
+      - "${LAN_IP:?imposta LAN_IP nel file .env}:53:53/tcp"
+      - "${LAN_IP:?imposta LAN_IP nel file .env}:53:53/udp"
+      - "80:80/tcp"
+
+    environment:
+      TZ: Europe/Rome
+      FTLCONF_webserver_api_password: ${PIHOLE_PASSWORD:?imposta PIHOLE_PASSWORD nel file .env}
+      FTLCONF_dns_listeningMode: all
+
+    volumes:
+      - ./etc-pihole:/etc/pihole
+
+    cap_add:
+      - SYS_NICE
