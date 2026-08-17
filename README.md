@@ -7,6 +7,7 @@ Self hosted services for home my network.
 | Service | Description | Path |
 |---|---|---|
 | [Pi-hole](pihole/) | DNS sinkhole: blocks ads/tracking and monitors DNS queries on the network | `pihole/` |
+| [Streaming](streaming/) | Media stack: Jellyfin server, Sonarr/Radarr automation, Overseerr requests, nzbget over a PIA VPN via gluetun | `streaming/` |
 
 ## Setup
 

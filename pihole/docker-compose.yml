@@ -7,13 +7,13 @@ services:
 
     ports:
     # In bridge mode, Pi-hole must listen on the LAN IP address, otherwise it won't be reachable from the LAN.
-      - "${LAN_IP:?imposta LAN_IP nel file .env}:53:53/tcp"
-      - "${LAN_IP:?imposta LAN_IP nel file .env}:53:53/udp"
+      - "${LAN_IP:?set LAN_IP in the .env file}:53:53/tcp"
+      - "${LAN_IP:?set LAN_IP in the .env file}:53:53/udp"
       - "80:80/tcp"
 
     environment:
       TZ: Europe/Rome
-      FTLCONF_webserver_api_password: ${PIHOLE_PASSWORD:?imposta PIHOLE_PASSWORD nel file .env}
+      FTLCONF_webserver_api_password: ${PIHOLE_PASSWORD:?set PIHOLE_PASSWORD in the .env file}
       FTLCONF_dns_listeningMode: all
 
     volumes:
